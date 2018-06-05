@@ -1,0 +1,41 @@
+
+config EDM
+	bool
+	default n
+
+config EDM_EXPANSION
+	bool
+	default n
+
+config EDM_BASEBOARD_WAND
+	tristate "Support for Wand baseboard"
+	depends on EDM
+	default y
+	select EDM_EXPANSION
+	help
+	  Include support for the devices on the default wand baseboard.
+
+          If you have a standard Wandboard, say Y.
+
+config EDM_EXPANSION_FWBADAPT
+	tristate "Support for Future WandBoard expansion board"
+	depends on EDM_EXPANSION
+	default n
+	help
+	  Include support for Future WandBoard Adapter FWBADAPT-7WVGA-PCAP ("TN55") with Prism touchscreen and 7" WVGA
+	  Don't forget to select the Prism touchscreen driver!
+
+config EDM_EXPANSION_WANDQC
+	tristate "Support for WandBoard QC expansion board"
+	depends on EDM_EXPANSION
+	default n
+	help
+	  Include support for WandBoard Factory Q/C ("TN57") expansion board
+	  This board features a TSC2046 touchscreen, don't forget to select the ADS7846 driver as well!
+
+config EDM_EXPANSION_LANCER
+	tristate "Support for Lancer WandBoard expansion board"
+	depends on EDM_EXPANSION
+	default n
+	help
+	  Add support for SC16is740 i2c to uart device. Remember to select driver as well.

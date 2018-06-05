@@ -1,0 +1,5 @@
+config MT7601U
+	tristate "MediaTek MT7601 USB WiFi"
+	depends on MAC80211 && USB && EXPERIMENTAL
+	---help---
+	  Help message of MT7601U
